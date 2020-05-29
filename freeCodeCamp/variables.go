@@ -17,4 +17,14 @@ func main() {
 	// T stand for type
 	fmt.Printf("%T, %T, %T", i, j, s)
 	fmt.Printf("%v, %v, %v", i, j, s)
+
+
+	// The iota keyword represents successive integer constants 0, 1, 2,…
+	const (
+		C1 = iota
+		C2
+		C3
+	)
+
+	fmt.Println(C1, C2, C3) // "1 2 3"
 }
