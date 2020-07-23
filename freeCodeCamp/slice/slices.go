@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-// slices are referred by reference!
+// slices are referred by reference! Unlike an array type, a slice type has no specified length.
+// A slice literal is declared just like an array literal, except you leave out the element count
 func main() {
 	a := []int{1, 2, 3}
 	b := a
@@ -37,7 +38,7 @@ func main() {
 	fmt.Printf("Length %v\n", len(h))
 	fmt.Printf("Capacity %v\n", cap(h))
 
-	// Declaring array without init capacity va values
+	// Declaring slice without init capacity va values
 	var j []int
 	fmt.Println(j)
 	fmt.Printf("Length %v\n", len(j))
@@ -53,7 +54,6 @@ func main() {
 	fmt.Println(j)
 
 	// removing items from slice
-
 	k := []int{1, 2, 3, 4, 5}
 	l := append(k[:2], k[3:]...)
 	fmt.Println(l)
