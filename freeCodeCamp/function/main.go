@@ -11,12 +11,16 @@ func main() {
 	println(*result)
 	result2 := nameReturn()
 	println(result2)
-
 	_, err := returnError(0.0, 2.0)
 
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	callAnonymous()
+
+	testGreeter := greeter{name: "Mehran"}
+	testGreeter.sayHello()
 }
 
 // pointer and function
@@ -40,17 +44,31 @@ func returnPointer() *int {
 }
 
 // name return value, in this case you do not need return the value just use the return keyword.
-
 func nameReturn() (result int) {
 	result = 456
 	return
 }
 
 // return error
-
 func returnError(a float32, b float32) (float32, error) {
 	if a == 0.0 {
 		return 0.0, fmt.Errorf("a is 0")
 	}
 	return a * b, nil
+}
+
+// anonymous function
+func callAnonymous() {
+	func() {
+		fmt.Println("I am Anonymous function!")
+	}()
+}
+
+// method for struct
+type greeter struct {
+	name string
+}
+
+func (g greeter) sayHello() {
+	fmt.Println("hello", g.name, "!")
 }
